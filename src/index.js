@@ -3,11 +3,38 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import firebase from 'firebase';
+import { Provider } from 'react-redux';
+import store from './store';
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBZW7o6d24cNuywBFQFXuYnbOoDSoJ-hTg",
+  authDomain: "web-messenger-40c9b.firebaseapp.com",
+  projectId: "web-messenger-40c9b",
+  storageBucket: "web-messenger-40c9b.appspot.com",
+  messagingSenderId: "645405261953",
+  appId: "1:645405261953:web:4da0517c6d1cd989a9cd80",
+  measurementId: "G-HRWL1043SH"
+};
+// Initialize Firebase
+
+
+firebase.initializeApp(firebaseConfig);
+
+
+window.store = store;
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+
+  <Provider store = {store}>
+
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  </Provider>,
+
   document.getElementById('root')
 );
 
